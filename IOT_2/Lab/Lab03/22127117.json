@@ -1,0 +1,484 @@
+[
+    {
+        "id": "f86ca75c5d5c171b",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd31d7449eede626",
+        "type": "group",
+        "z": "f86ca75c5d5c171b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2915299fe6ed51b5",
+            "e885b2e1d4869555",
+            "a069404b1c6ec60c",
+            "2eaa459a18f42274",
+            "4790ba53d589f737",
+            "db64164378206863"
+        ],
+        "x": 254,
+        "y": 239,
+        "w": 192,
+        "h": 522
+    },
+    {
+        "id": "5ccebdebceea4467",
+        "type": "group",
+        "z": "f86ca75c5d5c171b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b8a653be772afe99",
+            "17265325db865eb6"
+        ],
+        "x": 554,
+        "y": 439,
+        "w": 412,
+        "h": 82
+    },
+    {
+        "id": "7d0d646d7e57557a",
+        "type": "group",
+        "z": "f86ca75c5d5c171b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ce03ee2530b2e388",
+            "f732db2130b411c8",
+            "bc2698b3d89fd110"
+        ],
+        "x": 254,
+        "y": 919,
+        "w": 692,
+        "h": 82
+    },
+    {
+        "id": "2915299fe6ed51b5",
+        "type": "ui_button",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "BUTTON",
+        "group": "32081a3dd1780af5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "star",
+        "payload": "Clicked",
+        "payloadType": "str",
+        "topic": "Button",
+        "topicType": "str",
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "e885b2e1d4869555",
+        "type": "ui_dropdown",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "Choices",
+        "label": "",
+        "tooltip": "",
+        "place": "Choices",
+        "group": "32081a3dd1780af5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Choice 1: string",
+                "value": "hello",
+                "type": "str"
+            },
+            {
+                "label": "Choice  2: numeric",
+                "value": 5,
+                "type": "num"
+            },
+            {
+                "label": "Choice 3: bool",
+                "value": true,
+                "type": "bool"
+            }
+        ],
+        "payload": "",
+        "topic": "Dropdown",
+        "topicType": "str",
+        "className": "",
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "a069404b1c6ec60c",
+        "type": "ui_switch",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "Switch",
+        "label": "Switch",
+        "tooltip": "",
+        "group": "32081a3dd1780af5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Switch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "2eaa459a18f42274",
+        "type": "ui_slider",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "Slider",
+        "label": "Slider",
+        "tooltip": "",
+        "group": "32081a3dd1780af5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "Slider",
+        "topicType": "str",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 330,
+        "y": 540,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "4790ba53d589f737",
+        "type": "ui_numeric",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "Numeric",
+        "label": "Numeric",
+        "tooltip": "",
+        "group": "32081a3dd1780af5",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "Numeric",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 340,
+        "y": 620,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "db64164378206863",
+        "type": "ui_text_input",
+        "z": "f86ca75c5d5c171b",
+        "g": "bd31d7449eede626",
+        "name": "Change Text",
+        "label": "Change Text",
+        "tooltip": "",
+        "group": "32081a3dd1780af5",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "Text Input",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 350,
+        "y": 720,
+        "wires": [
+            [
+                "17265325db865eb6"
+            ]
+        ]
+    },
+    {
+        "id": "27f8d55eae83632e",
+        "type": "comment",
+        "z": "f86ca75c5d5c171b",
+        "name": "UI Elements",
+        "info": "",
+        "x": 330,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b8a653be772afe99",
+        "type": "ui_template",
+        "z": "f86ca75c5d5c171b",
+        "g": "5ccebdebceea4467",
+        "group": "f034759b2b05eba7",
+        "name": "",
+        "order": 1,
+        "width": 8,
+        "height": 10,
+        "format": "<ul>\n    <li ng-repeat=\"x in msg.payload\">\n        <font color=\"red\">{{x.topic}}</font>\n        <ul>\n            <li>{{x.payload}}</li>\n        </ul>\n    </li>\n</ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17265325db865eb6",
+        "type": "function",
+        "z": "f86ca75c5d5c171b",
+        "g": "5ccebdebceea4467",
+        "name": "Get logs",
+        "func": "// Lấy nhật ký thao tác ở thời điểm hiện tại\n// Nếu chưa có thao tác gì, tạo mảng rỗng\nvar logs = flow.get('logs') || [];\n\n// Lấy thông tin thao tác mới\nvar newLog = {\n    topic: msg.topic,\n    payload: msg.payload\n   \n};\n\n// Thêm thông tin thao tác mới vào nhật kí thao tác \nlogs.push(newLog);\n\n// Lưu nhật ký thao tấc mới vào 'logs'\nflow.set('logs', logs);\n\nmsg.payload = logs;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 480,
+        "wires": [
+            [
+                "b8a653be772afe99"
+            ]
+        ]
+    },
+    {
+        "id": "1457283dceee27d2",
+        "type": "comment",
+        "z": "f86ca75c5d5c171b",
+        "name": "Logs",
+        "info": "",
+        "x": 610,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ce03ee2530b2e388",
+        "type": "ui_form",
+        "z": "f86ca75c5d5c171b",
+        "g": "7d0d646d7e57557a",
+        "name": "My information",
+        "label": "",
+        "group": "28fe6dadd7202fd2",
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "options": [
+            {
+                "label": "Name",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Student Id",
+                "value": "stu_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Class Id",
+                "value": "class_id",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "stu_id": "",
+            "class_id": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 360,
+        "y": 960,
+        "wires": [
+            [
+                "bc2698b3d89fd110"
+            ]
+        ]
+    },
+    {
+        "id": "f732db2130b411c8",
+        "type": "ui_toast",
+        "z": "f86ca75c5d5c171b",
+        "g": "7d0d646d7e57557a",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Notification",
+        "x": 850,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc2698b3d89fd110",
+        "type": "function",
+        "z": "f86ca75c5d5c171b",
+        "g": "7d0d646d7e57557a",
+        "name": "Get student information",
+        "func": "var stu_info = msg.payload\n\nvar name = stu_info.name\nvar id = stu_info.stu_id\nvar class_id = stu_info.class_id\n\nmsg.payload = \"Hello \" + name + \", MSSV: \" + id\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 960,
+        "wires": [
+            [
+                "f732db2130b411c8"
+            ]
+        ]
+    },
+    {
+        "id": "ccb3a6600870ac15",
+        "type": "comment",
+        "z": "f86ca75c5d5c171b",
+        "name": "My information",
+        "info": "",
+        "x": 340,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "32081a3dd1780af5",
+        "type": "ui_group",
+        "name": "UI Elements",
+        "tab": "c28d22cd14916fe7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f034759b2b05eba7",
+        "type": "ui_group",
+        "name": "Logs",
+        "tab": "c28d22cd14916fe7",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "28fe6dadd7202fd2",
+        "type": "ui_group",
+        "name": "My information",
+        "tab": "c28d22cd14916fe7",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c28d22cd14916fe7",
+        "type": "ui_tab",
+        "name": "Lab 3",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
