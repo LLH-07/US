@@ -1,0 +1,5 @@
+- GitHub (including jupyter notebook files & data files): 
+https://github.com/LLH-07/Introduction-to-Data-Science-22KHDL1.git 
+
+- Work assignment: 
+https://docs.google.com/spreadsheets/d/1jIZy1dt-oftNa-vdmrblETi_qi03Fyoqi0MP42xdLAY/edit?usp=sharing 
