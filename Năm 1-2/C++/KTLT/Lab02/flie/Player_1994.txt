@@ -1,0 +1,11 @@
+  Position                Name       Year Of Birth       National Team                     Club
+        DF         John Stones                1994             England          Manchester City
+        FW     Raheem Sterling                1994             England          Manchester City
+        MF    Corentin Tolisso                1994              France            Bayern Munich
+        DF        João Cancelo                1994            Portugal          Manchester City
+        MF     Bruno Fernandes                1994            Portugal        Manchester United
+        FW      Bernardo Silva                1994            Portugal          Manchester City
+        DF          Marquinhos                1994              Brazil      Paris Saint-Germain
+        DF     Aymeric Laporte                1994               Spain          Manchester City
+        GK   Kepa Arrizabalaga                1994               Spain                  Chelsea
+        MF     Rodrigo De Paul                1994           Argentina          Atlético Madrid

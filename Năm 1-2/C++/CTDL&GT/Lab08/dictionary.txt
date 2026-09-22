@@ -1,0 +1,130 @@
+abate : lam diu di
+admonish : khien trach
+amiable : tu te, tot bung, de thuong
+arduous : kho khan, gian kho
+assimilate : dong hoa
+backpack : ba lo
+biodiversity : Su da dang sinh hoc 
+brazen : vo liem si, ngang nguoc
+booming : dang phat trien nhanh chong
+burgeon : bat dau lon len/ pha trien nhanh chong
+catastrophic : tham khoc
+censor : kiem duyet
+compound : pha tron
+compromise : thoa hiep
+clandestine : giau giem, bi mat
+data : du lieu
+derive : nhan duoc tu, lay duoc tu
+develop : phat trien
+disposal : tong khu
+diminish : giam
+evaluate : danh gia
+enhance : nang cao
+exacerbate : lam tram trong them
+exclude : loai tru
+evidence : bang chung
+faculty : nang luc
+flourish : thinh vuong
+fatal : gay tu vong, gay chet nguoi
+flex : khoe khoang
+finance : tai chinh
+golden : vang
+gossip : chuyen phiem
+grumble : cau nhau
+guess : doan
+ghost : ma
+hell : dia nguc
+heaven : thien duong
+hate : ghet
+hilarious : vui ve
+hope : hy vong
+irresponsible : vo trach nhiem
+itch : ngua
+identify : nhan dang
+isolate :  cach ly
+issue : van de
+jump : nhay
+junk : do dong nat
+judge : quan sat
+japanese : nguoi Nhat, tieng Nhat
+jay : chim ghe cui
+kite : dieu
+knowledge : kien thuc
+king : vua
+kick : da
+keep : giu
+lick : liem
+leak : ro ri
+linger : chan chu
+legislate : lam luat
+labour : tang lop lao dong
+master : bac thay
+mature : truong thanh
+major : chuyen nganh
+milestone : cot moc
+memory : ki uc
+nephew : chau trai
+niece : chau gai
+negligible : khong dang ke
+nonchalant : tho o, ho hung
+notorious : lung danh, tai tieng
+obscure : mo mit, toi tam
+obsolete : co xua, loi thoi, qua han
+occult : huyen bi, che lap
+ornament :  do trang hoang, trang suc
+outrage : su xuc pham, lang ma
+passion : su dam me
+patriotic : yeu nuoc, ai quoc
+perception : su nhan thuc, am hieu
+pinnacle : cuc diem
+perposterous : phi ly, ngo ngan
+quake : su run ray, dong dat
+quantity : so luong
+questionable : dang nguoi
+quick : nhanh
+quest : cuoc dieu tra
+racket : tieng on, huyen nao
+repulsive : ghe tom, dang ghet
+remorse : su an nang
+retaliate : tra dua, tra mieng
+reveal : boc lo, tiet lo
+sane : lanh manh
+scanty : it oi, thieu
+secluded : heo lanh
+selfless : vi tha
+sensible : co oc xet doan
+tavern : quan ruou, quan tro
+tenet : nguyen ly, giao ly
+thrify : tiet kiem
+tranquil : yen tinh, yen binh
+trivial : tam thuong
+urge : su thuc day, thuc giuc
+unusual : hiem, khac thuong
+unoccupied : nhan roi
+unstoppable : quyet tam
+update : cap nhat
+vacant : trong, rong
+vague : mo ho, map mo
+valient : anh dung, anh hung
+vigorous : soi noi, manh liet
+vile : ghe tom, toi te, re tien
+woe : su dau buon, phien muon
+wardrobe : tu quan ao
+withdraw : rut, rut lui
+worn : mon
+withstand : giu vung, tru lai
+xerodemma : benh kho da
+xerox : may sao chup
+xenon : khi xenon
+xiphias : ca kiem
+xylem : mach go
+year : nam
+yell : la het
+yeild : san luong
+young : tre
+yellow : mau vang
+zoo : so thu
+zero : so khong
+zebra : ngua van
+zigzag : ngoan ngoeo
+zany : nhang nho, ki cuc
