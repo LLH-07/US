@@ -1,0 +1,7 @@
+Scenario/configuration,Observed value,Interpretation
+"Baseline, poller 500 ms",processing 23.394 ms; re-evaluation 16.632 ms,A rare transient spike; both maxima occur in the same iteration.
+"Multi-session, 1 session",processing 61.303 ms; re-evaluation total 33.675 ms,"Large single-event spike, but P95 processing remains 15.279 ms."
+"Multi-session, 10 sessions",processing 121.966 ms; re-evaluation total 76.922 ms,Rare spike; P95 processing remains 81.431 ms.
+"Multi-session, 100 sessions",one session re-evaluation max 52.456 ms,A per-session outlier; aggregate P95 remains stable.
+"Timer, scheduler 5000 ms",re-evaluation max 15.667 ms,Processing outlier; timer waiting still dominates total latency.
+"Timer, scheduler 250 ms",post-revoke finalization max 8.055 ms,"Largest finalization gap, but overall P95 is only 3.467 ms."

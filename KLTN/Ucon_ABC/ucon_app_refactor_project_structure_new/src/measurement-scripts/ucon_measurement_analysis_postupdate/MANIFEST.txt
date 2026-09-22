@@ -1,0 +1,25 @@
+UCON measurement analysis after enabling postUpdate
+
+Current source archives:
+- db_event_baseline_2(2).zip
+- db_event_multi_session_2.zip
+- idle_polling_2(2).zip
+- timer_expiry_2.zip
+
+Previous source archives used for comparison:
+- db_event_baselines_1.zip
+- db_event_multi_sessions_1.zip
+- idle_polling_1.zip
+- timer_expiries(1).zip
+
+Generated:
+- README_UCON_MEASUREMENT_ANALYSIS_POSTUPDATE.md
+- charts/: 12 PNG files
+- summary_tables/: 10 CSV files
+
+Current row counts:
+- baseline: 500
+- idle configurations: 5
+- multi summary: 400
+- multi detail: 16100
+- timer expiry: 500

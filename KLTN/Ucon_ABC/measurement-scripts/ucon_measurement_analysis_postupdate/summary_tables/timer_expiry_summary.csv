@@ -1,0 +1,6 @@
+Scheduler interval (ms),N,Timer detection mean (ms),Timer detection P95 (ms),Event detection mean (ms),Event detection P95 (ms),Event processing mean (ms),Event processing P95 (ms),Total revoke mean (ms),Total revoke P95 (ms),Re-evaluation mean (ms),Re-evaluation P95 (ms),Post-revoke finalization mean (ms),Post-revoke finalization P95 (ms)
+250,100,137.2,248.8,746.7,909.2,18.4,21.1,893.9,994.4,6.69,7.92,8.43,10.04
+500,100,282.6,486.2,457.5,832.8,18.6,21.1,750.1,992.0,6.74,7.92,8.53,10.13
+1000,100,452.5,946.0,1009.4,1014.1,18.2,21.2,1471.3,1967.2,6.5,7.68,8.69,10.47
+2000,100,1030.7,1963.6,471.5,923.4,18.6,21.5,1512.2,2390.3,6.69,7.8,8.69,10.74
+5000,100,2180.6,4710.9,476.0,932.7,18.3,20.8,2666.3,5286.7,6.58,7.64,8.6,10.18

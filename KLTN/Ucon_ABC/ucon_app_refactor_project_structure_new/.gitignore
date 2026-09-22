@@ -1,0 +1,100 @@
+# =========================================================
+# Backend - Java / Maven / Spring Boot
+# =========================================================
+
+src/BE/target/
+*.class
+
+# Maven temporary and release files
+src/BE/dependency-reduced-pom.xml
+src/BE/pom.xml.tag
+src/BE/pom.xml.releaseBackup
+src/BE/pom.xml.versionsBackup
+src/BE/release.properties
+
+# Backend runtime files
+src/BE/logs/
+src/BE/*.log
+
+# Local backend configuration containing secrets
+src/BE/.env
+src/BE/src/main/resources/application-local.yml
+src/BE/src/main/resources/application-secret.yml
+
+
+# =========================================================
+# Frontend - Node.js / Vite
+# =========================================================
+
+src/FE/node_modules/
+src/FE/dist/
+src/FE/.vite/
+src/FE/coverage/
+
+# Local frontend environment variables
+src/FE/.env
+src/FE/.env.*
+!src/FE/.env.example
+
+# Node.js logs
+src/FE/npm-debug.log*
+src/FE/yarn-debug.log*
+src/FE/yarn-error.log*
+src/FE/pnpm-debug.log*
+
+
+# =========================================================
+# IDE
+# =========================================================
+
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+.classpath
+.project
+.settings/
+.factorypath
+
+
+# =========================================================
+# Operating system files
+# =========================================================
+
+.DS_Store
+._*
+__MACOSX/
+Thumbs.db
+Desktop.ini
+
+
+# =========================================================
+# Temporary and backup files
+# =========================================================
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+
+# =========================================================
+# Generated submission packages
+# =========================================================
+
+/*_MaNguon.zip
+
+
+# =========================================================
+# Measurement Python environment
+# =========================================================
+
+src/measurement-scripts/.venv/
+src/measurement-scripts/.env
+src/measurement-scripts/__pycache__/
+src/measurement-scripts/**/*.pyc

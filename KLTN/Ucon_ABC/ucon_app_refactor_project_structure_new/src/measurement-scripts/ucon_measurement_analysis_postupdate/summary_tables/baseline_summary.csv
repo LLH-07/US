@@ -1,0 +1,6 @@
+Poller interval (ms),N,Detection mean (ms),Detection P95 (ms),Processing mean (ms),Processing P95 (ms),End-to-end mean (ms),End-to-end P95 (ms),Re-evaluation mean (ms),Re-evaluation P95 (ms),Revoke mean (ms),Revoke P95 (ms),Post-revoke finalization mean (ms),Post-revoke finalization P95 (ms)
+250,100,128.0,240.4,17.7,20.4,145.7,257.4,6.39,7.91,137.5,249.5,8.22,9.57
+500,100,264.8,487.9,17.5,20.5,282.3,505.7,6.43,7.61,274.2,497.2,8.05,9.7
+1000,100,470.3,975.1,17.4,20.5,487.8,993.1,6.3,7.59,479.5,984.5,8.26,9.87
+2000,100,1021.8,1967.3,17.9,20.2,1039.7,1984.2,6.39,7.71,1031.3,1976.3,8.45,10.06
+5000,100,2695.4,4745.8,17.3,20.2,2712.7,4763.4,6.07,7.52,2704.3,4754.9,8.32,10.46

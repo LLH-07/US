@@ -1,0 +1,30 @@
+{
+    "folders": [
+        {
+            "name": "PROJECT FILES",
+            "path": "."
+        },
+        {
+            "name": "BE",
+            "path": "src/BE"
+        },
+        {
+            "name": "FE",
+            "path": "src/FE"
+        },
+        {
+            "name": "MEASUREMENT",
+            "path": "src/measurement-scripts"
+        }
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "git.openRepositoryInParentFolders": "always",
+
+        "files.exclude": {
+            "src/BE": true,
+            "src/FE": true,
+            "src/measurement-scripts": true
+        }
+    }
+}

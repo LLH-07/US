@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ucon-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ucon_ebook
+      POSTGRES_USER: ucon
+      POSTGRES_PASSWORD: ucon123
+    volumes:
+      - ucon_pg_data:/var/lib/postgresql/data
+
+volumes:
+  ucon_pg_data:

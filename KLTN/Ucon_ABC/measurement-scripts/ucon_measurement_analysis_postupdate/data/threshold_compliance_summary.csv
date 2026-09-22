@@ -1,0 +1,15 @@
+﻿scenario,setting,samples,p95_ms,passed_1000ms,pass_rate_1000ms_pct,pass_rate_150ms_pct,meets_95pct_requirement,session_pass_rate_1000ms_pct
+event_driven_single,poller=250,100,249.47699999999998,100,100.0,58.0,True,
+event_driven_single,poller=500,100,497.2057,100,100.0,27.0,True,
+event_driven_single,poller=1000,100,984.54035,97,97.0,15.0,True,
+event_driven_single,poller=2000,100,1976.3031,47,47.0,4.0,False,
+event_driven_single,poller=5000,100,4754.883449999999,15,15.0,2.0,False,
+event_driven_multi,K=1,100,,98,98.0,,True,98.0
+event_driven_multi,K=10,100,,87,87.0,,False,92.9
+event_driven_multi,K=50,100,,49,49.0,,False,74.72
+event_driven_multi,K=100,100,,22,22.0,,False,60.42
+timer_based,scheduler=250,100,994.37085,96,96.0,0.0,True,
+timer_based,scheduler=500,100,991.99495,96,96.0,0.0,True,
+timer_based,scheduler=1000,100,1967.23485,0,0.0,0.0,False,
+timer_based,scheduler=2000,100,2390.33295,25,25.0,0.0,False,
+timer_based,scheduler=5000,100,5286.725,13,13.0,0.0,False,

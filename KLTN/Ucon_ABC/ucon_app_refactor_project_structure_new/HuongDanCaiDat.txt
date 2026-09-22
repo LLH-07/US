@@ -1,0 +1,133 @@
+HƯỚNG DẪN CÀI ĐẶT
+
+Tên đề tài:
+Quản lý chính sách truy cập động dùng cơ chế điều khiển truy cập Usage Control (UCON)
+
+Nhóm thực hiện:
+- Lý Liên Hoa – MSSV: 22127117
+- Ngô Triệu Mẫn – MSSV: 22127256
+
+============================================================
+1. CẤU TRÚC MÃ NGUỒN
+============================================================
+
+src/BE:
+- Backend Spring Boot.
+- Bộ máy đánh giá chính sách AuthzForce Embedded PDP.
+- Mã nguồn UCON, REST API và WebSocket.
+- Script khởi tạo cơ sở dữ liệu PostgreSQL.
+- Các chính sách XACML và dữ liệu EPUB mẫu.
+
+src/FE:
+- Giao diện người dùng và giao diện quản trị.
+- Được chạy bằng Vite.
+
+============================================================
+2. CÔNG CỤ VÀ MÔI TRƯỜNG CẦN CÀI ĐẶT
+============================================================
+
+Các công cụ cần thiết:
+
+1. Java Development Kit:
+   - JDK 17.
+   - Thiết lập biến môi trường JAVA_HOME nếu hệ điều hành yêu cầu.
+
+2. Apache Maven:
+   - Khuyến nghị Maven 3.9 trở lên.
+
+3. Node.js và npm:
+   - Node.js 18 trở lên.
+   - npm được cài kèm với Node.js.
+
+4. Docker:
+   - Docker Desktop hoặc Docker Engine.
+   - Docker Compose phiên bản 2.
+
+5. Trình duyệt:
+   - Google Chrome, Microsoft Edge hoặc trình duyệt tương đương.
+
+Kiểm tra công cụ bằng các lệnh:
+
+java -version
+mvn -version
+node -v
+npm -v
+docker --version
+docker compose version
+
+============================================================
+3. CÁC CỔNG ĐƯỢC SỬ DỤNG
+============================================================
+
+PostgreSQL: 5433
+Backend Spring Boot: 8081
+Frontend Vite: 5173
+
+Cần bảo đảm các cổng này chưa được chương trình khác sử dụng.
+
+============================================================
+4. CƠ SỞ DỮ LIỆU
+============================================================
+
+Cơ sở dữ liệu được chạy bằng PostgreSQL 16 thông qua Docker Compose.
+
+Cấu hình mặc định:
+
+Database: ucon_ebook
+Username: ucon
+Password: ucon123
+Host: localhost
+Port: 5433
+
+Cấu hình này được khai báo tại:
+
+src/BE/docker-compose.yml
+src/BE/src/main/resources/application.yml
+
+Đây là thông tin dành cho môi trường demo cục bộ, không sử dụng
+cho hệ thống triển khai thực tế.
+
+============================================================
+5. CÀI ĐẶT THƯ VIỆN
+============================================================
+
+Mã nguồn nộp không chứa thư viện đã tải về.
+
+Thư viện backend được khai báo trong:
+
+src/BE/pom.xml
+
+Maven sẽ tự tải các thư viện Spring Boot, PostgreSQL JDBC và
+AuthzForce khi biên dịch lần đầu.
+
+Thư viện frontend được khai báo trong:
+
+src/FE/package.json
+src/FE/package-lock.json
+
+Cài đặt thư viện frontend bằng:
+
+cd src/FE
+npm ci
+
+PostgreSQL 16 được Docker tự động tải về khi chạy:
+
+docker compose up -d
+
+Máy cần kết nối Internet trong lần cài đặt thư viện và tải Docker
+image đầu tiên.
+
+============================================================
+6. CẤU HÌNH FRONTEND
+============================================================
+
+Địa chỉ API backend được cấu hình tại:
+
+src/FE/assets/js/env.js
+
+Cấu hình mặc định:
+
+API_BASE=http://localhost:8081/api/pep
+OBLIGATION_API_BASE=http://localhost:8081/api/ucon/obligations
+
+Nếu thay đổi cổng backend, cần cập nhật lại file env.js.

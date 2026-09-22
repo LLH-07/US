@@ -1,0 +1,5 @@
+Dataset,Measured rows,Successful rows,Relevant final status,Non-empty errors
+DB-event baseline,500,500,N/A,0
+DB-event multi-session summary,400,400,16100/16100 REVOKED,0
+Timer expiry,500,500,500/500 REVOKED,0
+Idle polling,5,5,0 events in all runs,0

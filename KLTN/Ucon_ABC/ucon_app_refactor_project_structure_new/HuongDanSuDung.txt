@@ -1,0 +1,131 @@
+HƯỚNG DẪN BIÊN DỊCH VÀ CHẠY CHƯƠNG TRÌNH
+
+============================================================
+1. KHỞI ĐỘNG CƠ SỞ DỮ LIỆU
+============================================================
+
+Mở Terminal thứ nhất và chuyển vào thư mục backend:
+
+cd src/BE
+
+Khởi động PostgreSQL:
+
+docker compose up -d
+
+Kiểm tra container:
+
+docker compose ps
+
+Container có tên ucon-postgres và PostgreSQL được ánh xạ ra
+cổng 5433.
+
+============================================================
+2. BIÊN DỊCH BACKEND
+============================================================
+
+Tại thư mục src/BE, chạy:
+
+mvn clean package -DskipTests
+
+Nếu biên dịch thành công, file kết quả nằm trong thư mục:
+
+target/ucon-ebook-demo-0.0.1-SNAPSHOT.jar
+
+============================================================
+3. CHẠY BACKEND
+============================================================
+
+Cách 1 – chạy trực tiếp bằng Maven:
+
+mvn spring-boot:run
+
+Backend hoạt động tại:
+
+http://localhost:8081
+
+Lưu ý:
+Cấu hình spring.sql.init.mode đang được đặt là always và
+schema.sql có thao tác tạo lại các bảng. Vì vậy dữ liệu demo được
+khởi tạo lại khi backend khởi động.
+
+============================================================
+4. CHẠY FRONTEND
+============================================================
+
+Mở Terminal thứ hai:
+
+cd src/FE
+
+Cài thư viện trong lần chạy đầu tiên:
+
+npm ci
+
+Khởi động frontend:
+
+npm run dev
+
+Frontend hoạt động tại:
+
+http://127.0.0.1:5173
+
+Giao diện quản trị:
+
+http://127.0.0.1:5173/admin.html
+
+============================================================
+5. TÀI KHOẢN DEMO
+============================================================
+
+Tài khoản người dùng:
+
+Email: nguyenbinh123@gmail.com
+Mật khẩu: demo
+
+Có thể sử dụng các email khác được khai báo trong data.sql.
+Mật khẩu demo là demo hoặc 123456.
+
+Tài khoản truy cập giao diện quản trị:
+
+Email: admin@ucon.vn
+Mật khẩu: demo
+
+============================================================
+6. CÁCH SỬ DỤNG CƠ BẢN
+============================================================
+
+1. Truy cập http://127.0.0.1:5173.
+2. Đăng nhập bằng tài khoản demo.
+3. Chọn sách trong thư viện.
+4. Chọn một tập sách và bắt đầu đọc.
+5. Hệ thống gửi yêu cầu truy cập đến PEP.
+6. Context Handler thu thập thuộc tính và yêu cầu PDP đánh giá.
+7. Nếu kết quả là PERMIT, một usage session được tạo.
+8. Trong quá trình đọc, hệ thống giám sát các thuộc tính liên quan.
+9. Nếu chính sách ongoing không còn thỏa mãn, phiên đọc bị thu hồi.
+10. Có thể theo dõi session và sự kiện tại giao diện quản trị.
+
+Các kiểu truy cập được minh họa:
+
+- RENTAL: yêu cầu gói thuê còn hiệu lực.
+- FAMILY_SHARED: đọc sách được chia sẻ trong nhóm gia đình.
+- PREVIEW: chỉ đọc số trang xem trước được giới hạn.
+  (truy cập này trả dữ liệu cố định và không thông qua lớp kiểm soát UCON)
+- FREE/PAID: demo hệ thống từ chối yêu cầu đọc sách do
+  không có chính sách kiểm soát quyền tương ứng.
+
+============================================================
+7. DỪNG CHƯƠNG TRÌNH
+============================================================
+
+Dừng backend và frontend bằng tổ hợp:
+
+Ctrl + C
+
+Dừng PostgreSQL nhưng giữ dữ liệu Docker:
+
+cd src/BE
+docker compose down
+
+Dừng PostgreSQL và xóa cả Docker volume:
+
+docker compose down -v

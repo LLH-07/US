@@ -1,0 +1,5 @@
+﻿requested_session_count,events,passed_events_1000ms,event_pass_rate_1000ms_pct,session_pass_rate_1000ms_pct
+1,100,98,98.0,98.0
+10,100,87,87.0,92.9
+50,100,49,49.0,74.72
+100,100,22,22.0,60.42

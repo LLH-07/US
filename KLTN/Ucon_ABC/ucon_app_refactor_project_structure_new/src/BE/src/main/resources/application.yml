@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ucon_ebook
+    username: ucon
+    password: ucon123
+
+  sql:
+    init:
+      mode: always
+      separator: "@@"
+
+logging:
+  level:
+    vn.ucon.demo: DEBUG
+  
+ucon:
+  trigger-poller:
+    interval-ms: ${UCON_TRIGGER_POLLER_INTERVAL_MS:1000}
+
+  timer-scheduler:
+    interval-ms: ${UCON_TIMER_SCHEDULER_INTERVAL_MS:1000}

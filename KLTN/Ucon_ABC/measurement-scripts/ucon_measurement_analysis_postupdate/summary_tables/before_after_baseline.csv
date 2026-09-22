@@ -1,0 +1,6 @@
+Poller interval (ms),Processing mean before (ms),Processing mean after (ms),Processing change (%),Re-evaluation mean before (ms),Re-evaluation mean after (ms),Finalization mean before (ms),Finalization mean after (ms)
+250,11.5,17.7,53.9,6.2,6.39,2.44,8.22
+500,12.0,17.5,45.8,6.45,6.43,2.58,8.05
+1000,12.4,17.4,40.3,6.56,6.3,2.77,8.26
+2000,12.1,17.9,47.9,6.44,6.39,2.6,8.45
+5000,12.6,17.3,37.3,6.65,6.07,2.8,8.32

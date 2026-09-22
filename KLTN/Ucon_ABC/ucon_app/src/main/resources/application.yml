@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ucon_ebook
+    username: ucon
+    password: ucon123
+  sql:
+    init:
+      mode: always
+      separator: "@@"
+
+logging:
+  level:
+    vn.ucon.demo: DEBUG

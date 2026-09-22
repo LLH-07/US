@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet
+    xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+    PolicySetId="ebook_read_policy_set"
+    Version="1.0"
+    PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable">
+
+    <Target/>
+
+    <Policy
+        PolicyId="rental_read_pre_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf><AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         AttributeId="urn:ucon:attr:action:id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:resource:type"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RENTAL</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:access:path"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PRE</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                         AttributeId="urn:ucon:attr:phase"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+            </AllOf></AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-rental-read-pre" Effect="Permit">
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                    <!-- users.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                AttributeId="urn:ucon:attr:users:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- books.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:books:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- book_volumes.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:book_volumes:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- book_volumes.access_model_override = RENTAL -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:book_volumes:access_model_override"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RENTAL</AttributeValue>
+                    </Apply>
+
+                    <!-- user_rentals.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:user_rentals:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- user_rentals.expires_at > environment.current_time -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-greater-than">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:user_rentals:expires_at"
+                                DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:environment:current_time"
+                                DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                                MustBePresent="true"/>
+                        </Apply>
+                    </Apply>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+    <Policy
+        PolicyId="rental_read_ongoing_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf><AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         AttributeId="urn:ucon:attr:action:id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:resource:type"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RENTAL</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:access:path"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ONGOING</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                         AttributeId="urn:ucon:attr:phase"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+            </AllOf></AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-rental-read-ongoing" Effect="Permit">
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+                    <!-- users.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                AttributeId="urn:ucon:attr:users:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- books.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:books:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- book_volumes.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:book_volumes:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- book_volumes.access_model_override = RENTAL -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:book_volumes:access_model_override"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RENTAL</AttributeValue>
+                    </Apply>
+
+                    <!-- user_rentals.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:user_rentals:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- user_rentals.expires_at > environment.current_time -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-greater-than">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:user_rentals:expires_at"
+                                DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:dateTime-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                AttributeId="urn:ucon:attr:environment:current_time"
+                                DataType="http://www.w3.org/2001/XMLSchema#dateTime"
+                                MustBePresent="true"/>
+                        </Apply>
+                    </Apply>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+    <Policy
+        PolicyId="rental_read_post_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf><AllOf>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                                         AttributeId="urn:ucon:attr:action:id"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:resource:type"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RENTAL</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                         AttributeId="urn:ucon:attr:access:path"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+                <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">POST</AttributeValue>
+                    <AttributeDesignator Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                                         AttributeId="urn:ucon:attr:phase"
+                                         DataType="http://www.w3.org/2001/XMLSchema#string"
+                                         MustBePresent="true"/>
+                </Match>
+            </AllOf></AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-rental-read-post" Effect="Permit">
+            <ObligationExpressions>
+                <ObligationExpression ObligationId="urn:ucon:obligation:update-action" FulfillOn="Permit">
+                    <AttributeAssignmentExpression AttributeId="urn:ucon:obligation:action-code">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">INCREASE_BOOK_VOLUME_READ_COUNT</AttributeValue>
+                    </AttributeAssignmentExpression>
+                </ObligationExpression>
+            </ObligationExpressions>
+        </Rule>
+    </Policy>
+
+    <!-- =========================================================
+         PRE policy
+         allowed(s, o, read) =
+             users.status = ACTIVE
+             AND books.status = ACTIVE
+             AND book_volumes.status = ACTIVE
+             AND family_share_active(s, o) = true
+         ========================================================= -->
+    <Policy
+        PolicyId="family_shared_read_pre_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                            AttributeId="urn:ucon:attr:action:id"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:resource:type"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">FAMILY_SHARED</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:access:path"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PRE</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            AttributeId="urn:ucon:attr:phase"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-family-shared-read-pre" Effect="Permit">
+            <Condition>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+
+                    <!-- users.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                AttributeId="urn:ucon:attr:users:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- books.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:books:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- book_volumes.status = ACTIVE -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                                AttributeId="urn:ucon:attr:book_volumes:status"
+                                DataType="http://www.w3.org/2001/XMLSchema#string"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ACTIVE</AttributeValue>
+                    </Apply>
+
+                    <!-- family_share_active(s, o) = true -->
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                            <AttributeDesignator
+                                Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                                AttributeId="urn:ucon:attr:family_share_active"
+                                DataType="http://www.w3.org/2001/XMLSchema#boolean"
+                                MustBePresent="true"/>
+                        </Apply>
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                    </Apply>
+
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+
+    <!-- =========================================================
+         ONGOING policy
+         !stopped(s, o, read) = family_share_active(s, o)
+         ========================================================= -->
+    <Policy
+        PolicyId="family_shared_read_ongoing_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                            AttributeId="urn:ucon:attr:action:id"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:resource:type"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">FAMILY_SHARED</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:access:path"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ONGOING</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            AttributeId="urn:ucon:attr:phase"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-family-shared-read-ongoing" Effect="Permit">
+            <Condition>
+                <!-- family_share_active(s, o) = true -->
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-equal">
+                    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:boolean-one-and-only">
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+                            AttributeId="urn:ucon:attr:family_share_active"
+                            DataType="http://www.w3.org/2001/XMLSchema#boolean"
+                            MustBePresent="true"/>
+                    </Apply>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#boolean">true</AttributeValue>
+                </Apply>
+            </Condition>
+        </Rule>
+    </Policy>
+
+
+    <!-- =========================================================
+         POST policy
+         Nếu bạn muốn chính sách family share cũng tăng read_count
+         khi người dùng kết thúc phiên đọc bình thường thì giữ policy này.
+         Nếu không cần post-update cho family share thì có thể bỏ cả policy POST.
+         ========================================================= -->
+    <Policy
+        PolicyId="family_shared_read_post_policy"
+        Version="1.0"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+        <Target>
+            <AnyOf>
+                <AllOf>
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+                            AttributeId="urn:ucon:attr:action:id"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">BOOK_VOLUME</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:resource:type"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">FAMILY_SHARED</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+                            AttributeId="urn:ucon:attr:access:path"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+
+                    <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">POST</AttributeValue>
+                        <AttributeDesignator
+                            Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                            AttributeId="urn:ucon:attr:phase"
+                            DataType="http://www.w3.org/2001/XMLSchema#string"
+                            MustBePresent="true"/>
+                    </Match>
+                </AllOf>
+            </AnyOf>
+        </Target>
+
+        <Rule RuleId="permit-family-shared-read-post" Effect="Permit">
+            <ObligationExpressions>
+                <ObligationExpression
+                    ObligationId="urn:ucon:obligation:update-action"
+                    FulfillOn="Permit">
+
+                    <AttributeAssignmentExpression AttributeId="urn:ucon:obligation:action-code">
+                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">INCREASE_BOOK_VOLUME_READ_COUNT</AttributeValue>
+                    </AttributeAssignmentExpression>
+
+                </ObligationExpression>
+            </ObligationExpressions>
+        </Rule>
+    </Policy>
+</PolicySet>

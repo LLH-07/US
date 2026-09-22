@@ -1,0 +1,7 @@
+Scenario/configuration,Observed value,Interpretation
+"Baseline, poller 500 ms",processing max 23.879 ms; re-evaluation max 11.844 ms,Rare spike; P95 processing remains 20.529 ms.
+"Baseline, poller 250 ms",post-revoke finalization max 14.549 ms,Largest baseline finalization gap; P95 is only 9.573 ms.
+"Multi-session, 100 sessions",processing max 1010.252 ms; revoke spread max 506.333 ms,One run exceeded the 1000 ms poller interval; possible delayed next poll/backlog under sustained load.
+"Multi-session, 100 sessions",per-session re-evaluation max 24.116 ms,Per-session outlier; aggregate P95 remains 323.430 ms.
+"Timer, scheduler 5000 ms",processing max 28.941 ms; finalization max 18.360 ms,Rare processing/finalization spike; P95 processing remains 20.827 ms.
+"Timer, scheduler 1000 ms","event detection min 1000.597 ms, mean 1009.373 ms","Persistent scheduler–poller phase alignment, not a random outlier."

@@ -1,0 +1,5 @@
+Active sessions,Processing mean before (ms),Processing mean after (ms),Processing change (%),Re-evaluation total before (ms),Re-evaluation total after (ms),Revoke spread before (ms),Revoke spread after (ms)
+1,13.1,18.3,39.7,7.0,6.6,0.0,0.0
+10,71.0,107.7,51.7,42.9,41.2,27.0,42.6
+50,260.6,414.1,58.9,160.1,158.3,115.5,188.0
+100,503.3,789.5,56.9,308.3,300.1,233.9,374.3

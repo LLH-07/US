@@ -1,0 +1,19 @@
+UCON measurement analysis package
+
+Generated files:
+- README_UCON_MEASUREMENT_ANALYSIS.md
+- charts/: 8 PNG charts
+- summary_tables/: 6 CSV summary tables
+
+Source archives:
+- db_event_baselines_1.zip
+- idle_polling_1.zip
+- db_event_multi_sessions_1.zip
+- timer_expiries(1).zip
+
+Source row counts:
+- baseline: 500
+- idle configurations: 5
+- multi-session summary: 400
+- multi-session detail: 16100
+- timer expiry: 500

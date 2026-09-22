@@ -1,0 +1,5 @@
+Active sessions,N events,Detection mean (ms),Processing mean (ms),Processing P95 (ms),Processing max (ms),Re-evaluation total mean (ms),Re-evaluation total P95 (ms),Re-evaluation/session mean (ms),Non-reevaluation overhead mean (ms),End-to-end P95 (ms),Revoke P95 mean (ms),Revoke max mean (ms),Mean max-minus-mean spread (ms),Spread P95 (ms)
+1,100,515.5,18.3,21.2,24.4,6.6,7.8,6.617,11.7,923.2,525.3,525.3,0.0,0.0
+10,100,466.7,107.7,118.7,123.9,41.2,46.1,4.122,66.5,1071.0,566.0,569.9,42.6,47.2
+50,100,545.8,414.1,436.2,452.7,158.3,168.2,3.167,255.7,1349.6,937.2,955.8,188.0,202.2
+100,100,491.0,789.5,834.3,1010.3,300.1,323.4,3.001,489.4,1761.1,1239.3,1276.5,374.3,393.7

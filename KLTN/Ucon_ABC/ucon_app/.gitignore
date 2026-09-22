@@ -1,0 +1,17 @@
+# Maven
+target/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+FE/.env
+FE/node_modules/
+FE/dist/
